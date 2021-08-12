@@ -1,4 +1,5 @@
-# greenwashing-
+
+
 library(readxl)
 library(tidyverse)
 library(dplyr)
@@ -220,7 +221,7 @@ ggplot(data = jppp2, aes(x = Date, y = equity)) +
   geom_point(size = 3, aes(colour = highlight)) +
   scale_color_manual("Status", values = my_colors)
 
-
+# ten day analysis 
 jppp3 <- my_data %>% slice(55:45)
 j_ppp3 <- tribble(
   ~Date,   ~equity, ~company,  
@@ -254,312 +255,806 @@ ggplot(data = jppp3, aes(x = Date, y = equity)) +
 jpppp1 <- my_data %>% slice(361:360)
 j_pppp1 <- tribble(
   ~Date,   ~equity, ~company,  
-  "02/26/20",   127., "JPMorgan", 
-  "02/27/20",   121., "JPMorgan" 
+  "02/26/20",   126.64, "JPMorgan", 
+  "02/27/20",   121.37, "JPMorgan" 
 )
+
+## preparing data for the graph
+jpppp1 <- j_pppp1 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2020-02-26", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = jpppp1, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
 
 ## five days 
 jpppp2 <- my_data %>% slice(361:356)
+j_pppp2 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "02/26/20",   126.64, "JPMorgan", 
+  "02/27/20",   121.37, "JPMorgan",
+  "02/28/20",   116.11, "JPMorgan",
+  "03/02/20",   121.52, "JPMorgan", 
+  "03/03/20",   116.96, "JPMorgan",
+  "03/04/20",   119.85, "JPMorgan"
+)
+
+## preparing data for the graph
+jpppp2 <- j_pppp2 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2020-02-26", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = jpppp2, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
 
 ## ten days
 jpppp3 <- my_data %>% slice(361:351)
+j_pppp3 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "02/26/20",   126.64, "JPMorgan", 
+  "02/27/20",   121.37, "JPMorgan",
+  "02/28/20",   116.11, "JPMorgan",
+  "03/02/20",   121.52, "JPMorgan", 
+  "03/03/20",   116.96, "JPMorgan",
+  "03/04/20",   119.85, "JPMorgan", 
+  "03/05/20",   113.97, "JPMorgan",
+  "03/06/20",   108.08, "JPMorgan",
+  "03/09/20",    93.44, "JPMorgan",
+  "03/10/20",   100.70, "JPMorgan",
+  "03/11/20",    95.96, "JPMorgan"
+)
 
-## one day analysis
-ggplot(data = jpppp1) + geom_point(mapping = aes(Date, equity))
+## preparing data for the graph
+jpppp3 <- j_pppp3 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2020-02-26", "Greenwashing Press Release", "Normal"))
 
-## five days analysis 
-ggplot(data = jpppp2) + geom_point(mapping = aes(Date, equity))
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
 
-## ten days analysis
-ggplot(data = jpppp3) + geom_point(mapping = aes(Date, equity))
+## ploting the graph
+ggplot(data = jpppp3, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
 
 # fifth analysis
 jppppp1 <- my_data %>% slice(365:364)
+j_ppppp1 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "02/20/20",   137.49, "JPMorgan", 
+  "02/21/20",   135.81, "JPMorgan" 
+)
+
+## preparing data for the graph
+jppppp1 <- j_ppppp1 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2020-02-20", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = jppppp1, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
 jppppp2 <- my_data %>% slice(365:360)
+j_ppppp2 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "02/20/20",   137.49, "JPMorgan", 
+  "02/21/20",   135.81, "JPMorgan", 
+  "02/24/20",   132.16, "JPMorgan", 
+  "02/25/20",   126.26, "JPMorgan",
+  "02/26/20",   126.64, "JPMorgan",
+  "02/27/20",   121.37, "JPMorgan"
+)
+
+## preparing data for the graph
+jppppp2 <- j_ppppp2 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2020-02-20", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = jppppp2, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
 jppppp3 <- my_data %>% slice(365:355)
+j_ppppp3 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "02/20/20",   137.49, "JPMorgan", 
+  "02/21/20",   135.81, "JPMorgan", 
+  "02/24/20",   132.16, "JPMorgan", 
+  "02/25/20",   126.26, "JPMorgan",
+  "02/26/20",   126.64, "JPMorgan",
+  "02/27/20",   121.37, "JPMorgan", 
+  "02/28/20",   116.11, "JPMorgan",
+  "03/02/20",   121.52, "JPMorgan",
+  "03/03/20",   116.96, "JPMorgan",
+  "03/04/20",   119.85, "JPMorgan",
+  "03/05/20",   113.97, "JPMorgan"
+)
 
-## one day analysis
-ggplot(data = jppppp1) + geom_point(mapping = aes(Date, equity))
+## preparing data for the graph
+jppppp3 <- j_ppppp3 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2020-02-20", "Greenwashing Press Release", "Normal"))
 
-## five days analysis 
-ggplot(data = jppppp2) + geom_point(mapping = aes(Date, equity))
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
 
-## ten days analysis
-ggplot(data = jppppp3) + geom_point(mapping = aes(Date, equity))
+## ploting the graph
+ggplot(data = jppppp3, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
 
 # sixth analysis
+## one day analysis 
 jpppppp1 <- my_data %>% slice(934:933)
+j_pppppp1 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "11/13/17",   97.86, "JPMorgan", 
+  "11/14/17",   97.27, "JPMorgan" 
+)
+
+## preparing data for the graph
+jpppppp1 <- j_pppppp1 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2017-11-13", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = jpppppp1, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+## five day analysis
 jpppppp2 <- my_data %>% slice(934:929)
+j_pppppp2 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "11/13/17",   97.86, "JPMorgan", 
+  "11/14/17",   97.27, "JPMorgan",
+  "11/15/17",   98.19, "JPMorgan", 
+  "11/16/17",   98.47, "JPMorgan",
+  "11/17/17",   98.14, "JPMorgan", 
+  "11/20/17",   99.01, "JPMorgan"
+)
+
+## preparing data for the graph
+jpppppp2 <- j_pppppp2 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2017-11-13", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = jpppppp2, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+## ten day analysis 
 jpppppp3 <- my_data %>% slice(934:924)
+j_pppppp3 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "11/13/17",   97.86, "JPMorgan", 
+  "11/14/17",   97.27, "JPMorgan",
+  "11/15/17",   98.19, "JPMorgan", 
+  "11/16/17",   98.47, "JPMorgan",
+  "11/17/17",   98.14, "JPMorgan", 
+  "11/20/17",   99.01, "JPMorgan", 
+  "11/21/17",   98.93, "JPMorgan",
+  "11/22/17",   98.64, "JPMorgan",
+  "11/24/17",   98.32, "JPMorgan",
+  "11/27/17",   97.93, "JPMorgan",
+  "11/28/17",  101.36, "JPMorgan"
+)
 
-## one day analysis
-ggplot(data = jpppppp1) + geom_point(mapping = aes(Date, equity))
+## preparing data for the graph
+jpppppp3 <- j_pppppp3 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2017-11-13", "Greenwashing Press Release", "Normal"))
 
-## five days analysis 
-ggplot(data = jpppppp2) + geom_point(mapping = aes(Date, equity))
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
 
-## ten days analysis
-ggplot(data = jpppppp3) + geom_point(mapping = aes(Date, equity))
+## ploting the graph
+ggplot(data = jpppppp3, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
 
 # shell analysis
 
 ## first analysis
+### one day
 shell1 <- my_data %>% slice(2457:2456)
+shell_1 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "05/27/21", 15.888, "Shell", 
+  "05/28/21", 15.828, "Shell" 
+)
+
+## preparing data for the graph
+shell1 <- shell_1 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-05-27", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = shell1, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+### five days
 shell2 <- my_data %>% slice(2457:2452)
+shell_2 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "05/27/21", 15.888, "Shell", 
+  "05/28/21", 15.828, "Shell",
+  "05/31/21", 15.684, "Shell",
+  "06/01/21", 16.094, "Shell",
+  "06/02/21", 16.460, "Shell",
+  "06/03/21", 16.488, "Shell"
+)
+
+## preparing data for the graph
+shell2 <- shell_2 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-05-27", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = shell2, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
 shell3 <- my_data %>% slice(2457:2447)
+shell_3 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "05/27/21", 15.888, "Shell", 
+  "05/28/21", 15.828, "Shell",
+  "05/31/21", 15.684, "Shell",
+  "06/01/21", 16.094, "Shell",
+  "06/02/21", 16.460, "Shell",
+  "06/03/21", 16.488, "Shell", 
+  "06/04/21", 16.394, "Shell",
+  "06/07/21", 16.350, "Shell",
+  "06/08/21", 16.256, "Shell",
+  "06/09/21", 16.428, "Shell",
+  "06/10/21", 16.576, "Shell"
+)
 
-## one day analysis
-ggplot(data = shell1) + geom_point(mapping = aes(equity, Date))
+## preparing data for the graph
+shell3 <- shell_3 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-05-27", "Greenwashing Press Release", "Normal"))
 
-## five days analysis 
-ggplot(data = shell2) + geom_point(mapping = aes(equity, Date))
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
 
-## ten days analysis
-ggplot(data = shell3) + geom_point(mapping = aes(equity, Date))
+## ploting the graph
+ggplot(data = shell3, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
 
 ## second analysis
+### one day analysis 
 shell4 <- my_data %>% slice(2458:2457)
+shell_4 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "05/26/21", 16.094, "Shell",
+  "05/27/21", 15.888, "Shell"
+)
+
+## preparing data for the graph
+shell4 <- shell_4 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-05-26", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = shell4, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
 shell5 <- my_data %>% slice(2458:2453)
+shell_5 <- tribble(
+  ~Date,   ~equity, ~company,
+  "05/26/21", 16.094, "Shell",
+  "05/27/21", 15.888, "Shell", 
+  "05/28/21", 15.828, "Shell",
+  "05/31/21", 15.684, "Shell",
+  "06/01/21", 16.094, "Shell",
+  "06/02/21", 16.460, "Shell"
+)
+
+## preparing data for the graph
+shell5 <- shell_5 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-05-26", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = shell5, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+### ten day analysis 
 shell6 <- my_data %>% slice(2458:2448)
+shell_6 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "05/26/21", 16.094, "Shell",
+  "05/27/21", 15.888, "Shell", 
+  "05/28/21", 15.828, "Shell",
+  "05/31/21", 15.684, "Shell",
+  "06/01/21", 16.094, "Shell",
+  "06/02/21", 16.460, "Shell",
+  "06/03/21", 16.488, "Shell", 
+  "06/04/21", 16.394, "Shell",
+  "06/07/21", 16.350, "Shell",
+  "06/08/21", 16.256, "Shell",
+  "06/09/21", 16.428, "Shell"
+)
 
-## one day analysis
-ggplot(data = shell4) + geom_point(mapping = aes(equity, Date))
+## preparing data for the graph
+shell6 <- shell_6 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-05-26", "Greenwashing Press Release", "Normal"))
 
-## five days analysis 
-ggplot(data = shell5) + geom_point(mapping = aes(equity, Date))
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
 
-## ten days analysis
-ggplot(data = shell6) + geom_point(mapping = aes(equity, Date))
+## ploting the graph
+ggplot(data = shell6, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
 
 ## third analysis
 shell7 <- my_data %>% slice(2480:2479)
+shell_7 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "04/26/21", 15.906, "Shell",
+  "04/27/21", 15.770, "Shell"
+)
+
+## preparing data for the graph
+shell7 <- shell_7 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-04-26", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = shell7, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+### five day analysis 
 shell8 <- my_data %>% slice(2480:2475)
+shell_8 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "04/26/21", 15.906, "Shell",
+  "04/27/21", 15.770, "Shell", 
+  "04/28/21", 16.078, "Shell",
+  "04/29/21", 15.904, "Shell", 
+  "04/30/21", 15.840, "Shell",
+  "05/03/21", 16.000, "Shell"
+)
+
+## preparing data for the graph
+shell8 <- shell_8 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-04-26", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = shell8, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
 shell9 <- my_data %>% slice(2480:2470)
+shell_9 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "04/26/21", 15.906, "Shell",
+  "04/27/21", 15.770, "Shell", 
+  "04/28/21", 16.078, "Shell",
+  "04/29/21", 15.904, "Shell", 
+  "04/30/21", 15.840, "Shell",
+  "05/03/21", 16.000, "Shell",
+  "05/04/21", 16.126, "Shell",
+  "05/05/21", 16.494, "Shell",
+  "05/06/21", 16.510, "Shell",
+  "05/07/21", 16.612, "Shell",
+  "05/10/21", 16.650, "Shell"
+)
 
-## one day analysis
-ggplot(data = shell7) + geom_point(mapping = aes(equity, Date))
+## preparing data for the graph
+shell9 <- shell_9 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-04-26", "Greenwashing Press Release", "Normal"))
 
-## five days analysis 
-ggplot(data = shell8) + geom_point(mapping = aes(equity, Date))
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
 
-## ten days analysis
-ggplot(data = shell9) + geom_point(mapping = aes(equity, Date))
+## ploting the graph
+ggplot(data = shell9, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
 
 ## fourth analysis
 shell10 <- my_data %>% slice(2482:2481)
+shell_10 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "04/22/21", 15.862, "Shell",
+  "04/23/21", 15.720, "Shell"
+)
+
+## preparing data for the graph
+shell10 <- shell_10 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-04-22", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## ploting the graph
+ggplot(data = shell10, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+## five day analysis 
 shell11 <- my_data %>% slice(2482:2477)
+shell_11 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "04/22/21", 15.862, "Shell",
+  "04/23/21", 15.720, "Shell", 
+  "04/26/21", 15.906, "Shell",
+  "04/27/21", 15.770, "Shell",
+  "04/28/21", 16.078, "Shell",
+  "04/29/21", 15.904, "Shell"
+)
+
+## preparing data for the graph
+shell11 <- shell_11 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-04-22", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## plotting the graph
+ggplot(data = shell11, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+### ten day analysis 
 shell12 <- my_data %>% slice(2482:2472)
+shell_12 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "04/22/21", 15.862, "Shell",
+  "04/23/21", 15.720, "Shell", 
+  "04/26/21", 15.906, "Shell",
+  "04/27/21", 15.770, "Shell",
+  "04/28/21", 16.078, "Shell",
+  "04/29/21", 15.904, "Shell", 
+  "04/30/21", 15.840, "Shell",
+  "05/03/21", 16.000, "Shell",
+  "05/04/21", 16.126, "Shell",
+  "05/05/21", 16.494, "Shell",
+  "05/06/21", 16.510, "Shell",
+)
 
-## one day analysis
-ggplot(data = shell10) + geom_point(mapping = aes(equity, Date))
+## preparing data for the graph
+shell12 <- shell_12 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-04-22", "Greenwashing Press Release", "Normal"))
 
-## five days analysis 
-ggplot(data = shell11) + geom_point(mapping = aes(equity, Date))
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
 
-## ten days analysis
-ggplot(data = shell12) + geom_point(mapping = aes(equity, Date)) 
+## plotting the graph
+ggplot(data = shell12, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
 
 ## fifth analysis
 shell13 <- my_data %>% slice(2485:2484)
+shell_13 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "04/19/21", 16.386, "Shell",
+  "04/20/21", 15.788, "Shell"
+)
+
+## preparing data for the graph
+shell13 <- shell_13 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-04-19", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## plotting the graph
+ggplot(data = shell13, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+### five day analysis 
 shell14 <- my_data %>% slice(2485:2480)
+shell_14 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "04/19/21", 16.386, "Shell",
+  "04/20/21", 15.788, "Shell", 
+  "04/21/21", 15.974, "Shell",
+  "04/22/21", 15.862, "Shell",
+  "04/23/21", 15.720, "Shell", 
+  "04/26/21", 15.906, "Shell",
+)
+
+## preparing data for the graph
+shell14 <- shell_14 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-04-19", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## plotting the graph
+ggplot(data = shell14, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+### ten day analysis 
 shell15 <- my_data %>% slice(2485:2475)
+shell_15 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "04/19/21", 16.386, "Shell",
+  "04/20/21", 15.788, "Shell", 
+  "04/21/21", 15.974, "Shell",
+  "04/22/21", 15.862, "Shell",
+  "04/23/21", 15.720, "Shell", 
+  "04/26/21", 15.906, "Shell",
+  "04/27/21", 15.770, "Shell",
+  "04/28/21", 16.078, "Shell",
+  "04/29/21", 15.904, "Shell", 
+  "04/30/21", 15.840, "Shell",
+  "05/03/21", 16.000, "Shell"
+)
 
-## one day analysis
-ggplot(data = shell13) + geom_point(mapping = aes(equity, Date))
+## preparing data for the graph
+shell15 <- shell_15 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-04-19", "Greenwashing Press Release", "Normal"))
 
-## five days analysis 
-ggplot(data = shell14) + geom_point(mapping = aes(equity, Date))
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
 
-## ten days analysis
-ggplot(data = shell15) + geom_point(mapping = aes(equity, Date))
+## plotting the graph
+ggplot(data = shell15, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
 
 ## sixth analysis
+### one day analysis
 shell16 <- my_data %>% slice(2487:2486)
+shell_16 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "04/15/21", 16.636, "Shell",
+  "04/16/21", 16.444, "Shell"
+)
+
+## preparing data for the graph
+shell16 <- shell_16 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-04-15", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## plotting the graph
+ggplot(data = shell16, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+### five day analysis 
 shell17 <- my_data %>% slice(2487:2482)
+shell_17 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "04/15/21", 16.636, "Shell",
+  "04/16/21", 16.444, "Shell",
+  "04/19/21", 16.386, "Shell",
+  "04/20/21", 15.788, "Shell", 
+  "04/21/21", 15.974, "Shell",
+  "04/22/21", 15.862, "Shell",
+)
+
+## preparing data for the graph
+shell17 <- shell_17 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-04-15", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## plotting the graph
+ggplot(data = shell17, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+### ten day analysis
 shell18 <- my_data %>% slice(2487:2477)
+shell_18 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "04/15/21", 16.636, "Shell",
+  "04/16/21", 16.444, "Shell",
+  "04/19/21", 16.386, "Shell",
+  "04/20/21", 15.788, "Shell", 
+  "04/21/21", 15.974, "Shell",
+  "04/22/21", 15.862, "Shell",
+  "04/23/21", 15.720, "Shell", 
+  "04/26/21", 15.906, "Shell",
+  "04/27/21", 15.770, "Shell",
+  "04/28/21", 16.078, "Shell",
+  "04/29/21", 15.904, "Shell", 
+)
 
-## one day analysis
-ggplot(data = shell16) + geom_point(mapping = aes(equity, Date))
+## preparing data for the graph
+shell18 <- shell_18 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2021-04-15", "Greenwashing Press Release", "Normal"))
 
-## five days analysis 
-ggplot(data = shell17) + geom_point(mapping = aes(equity, Date))
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
 
-## ten days analysis
-ggplot(data = shell18) + geom_point(mapping = aes(equity, Date))
+## plotting the graph
+ggplot(data = shell18, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
 
 ## seventh analysis
 shell19 <- my_data %>% slice(2581:2580)
+shell_19 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "11/30/20", 14.386, "Shell",
+  "12/01/20", 14.728, "Shell"
+)
+
+## preparing data for the graph
+shell19 <- shell_19 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2020-11-30", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## plotting the graph
+ggplot(data = shell19, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
 shell20 <- my_data %>% slice(2581:2576)
+shell_20 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "11/30/20", 14.386, "Shell",
+  "12/01/20", 14.728, "Shell",
+  "12/02/20", 15.134, "Shell",
+  "12/03/20", 15.256, "Shell",
+  "12/04/20", 15.782, "Shell",
+  "12/07/20", 15.592, "Shell"
+)
+
+## preparing data for the graph
+shell20 <- shell_20 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2020-11-30", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## plotting the graph
+ggplot(data = shell20, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+### ten day analysis 
 shell21 <- my_data %>% slice(2581:2571)
+shell_21 <- tribble(
+  ~Date,   ~equity, ~company,  
+  "11/30/20", 14.386, "Shell",
+  "12/01/20", 14.728, "Shell",
+  "12/02/20", 15.134, "Shell",
+  "12/03/20", 15.256, "Shell",
+  "12/04/20", 15.782, "Shell",
+  "12/07/20", 15.592, "Shell",
+  "12/08/20", 15.528, "Shell",
+  "12/09/20", 15.512, "Shell",
+  "12/10/20", 15.936, "Shell",
+  "12/11/20", 15.414, "Shell",
+  "12/14/20", 15.100, "Shell",
+  "12/15/20", 15.284, "Shell"
+)
 
-## one day analysis
-ggplot(data = shell19) + geom_point(mapping = aes(equity, Date))
+## preparing data for the graph
+shell21 <- shell_21 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2020-11-30", "Greenwashing Press Release", "Normal"))
 
-## five days analysis 
-ggplot(data = shell20) + geom_point(mapping = aes(equity, Date))
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
 
-## ten days analysis
-ggplot(data = shell21) + geom_point(mapping = aes(equity, Date))
+## plotting the graph
+ggplot(data = shell21, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
 
 ## eighth analysis
 shell22 <- my_data %>% slice(4685:4684)
+shell_22 <- tribble(
+       ~Date,~equity, ~company,  
+  "09/05/12", 27.565, "Shell",
+  "09/06/12", 28.045, "Shell"
+)
+
+## preparing data for the graph
+shell22 <- shell_22 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2012-09-05", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## plotting the graph
+ggplot(data = shell22, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+## five day analysis
 shell23 <- my_data %>% slice(4685:4680)
+shell_23 <- tribble(
+  ~Date,~equity, ~company,  
+  "09/05/12", 27.565, "Shell",
+  "09/06/12", 28.045, "Shell",
+  "09/07/12", 27.940, "Shell",
+  "09/10/12", 27.905, "Shell", 
+  "09/11/12", 27.950, "Shell",
+  "09/12/12", 27.845, "Shell"
+)
+
+## preparing data for the graph
+shell23 <- shell_23 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2012-09-05", "Greenwashing Press Release", "Normal"))
+
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
+
+## plotting the graph
+ggplot(data = shell23, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
+
+### ten day analysis 
 shell24 <- my_data %>% slice(4685:4675)
+shell_24 <- tribble(
+  ~Date,~equity, ~company,  
+  "09/05/12", 27.565, "Shell",
+  "09/06/12", 28.045, "Shell",
+  "09/07/12", 27.940, "Shell",
+  "09/10/12", 27.905, "Shell", 
+  "09/11/12", 27.950, "Shell",
+  "09/12/12", 27.845, "Shell", 
+  "09/13/12", 28.135, "Shell",
+  "09/14/12", 27.925, "Shell",
+  "09/17/12", 27.910, "Shell", 
+  "09/18/12", 27.850, "Shell",
+  "09/19/12", 27.830, "Shell"
+)
 
-## one day analysis
-ggplot(data = shell22) + geom_point(mapping = aes(equity, Date))
+## preparing data for the graph
+shell24 <- shell_24 %>% 
+  mutate(Date = mdy(Date)) %>% 
+  mutate(highlight = ifelse(Date == "2012-09-05", "Greenwashing Press Release", "Normal"))
 
-## five days analysis 
-ggplot(data = shell23) + geom_point(mapping = aes(equity, Date))
+my_colors <- c("Greenwashing Press Release" = "red", "Normal" = "black")
 
-## ten days analysis
-ggplot(data = shell24) + geom_point(mapping = aes(equity, Date))
-
-# Exxon Analysis 
-## first analysis
-exxon1 <- my_data %>% slice(4903:4902)
-exxon2 <- my_data %>% slice(4903:4898)
-exxon3 <- my_data %>% slice(4903:4893)
-
-## one day analysis
-ggplot(data = exxon1) + geom_point(mapping = aes(equity, Date))
-
-## five days analysis 
-ggplot(data = exxon2) + geom_point(mapping = aes(equity, Date))
-
-## ten days analysis
-ggplot(data = exxon3) + geom_point(mapping = aes(equity, Date))
-
-## second analysis
-exxon4 <- my_data %>% slice(4904:4903)
-exxon5 <- my_data %>% slice(4904:4899)
-exxon6 <- my_data %>% slice(4904:4894)
-
-## one day analysis
-ggplot(data = exxon4) + geom_point(mapping = aes(equity, Date))
-
-## five days analysis 
-ggplot(data = exxon5) + geom_point(mapping = aes(equity, Date))
-
-## ten days analysis
-ggplot(data = exxon6) + geom_point(mapping = aes(equity, Date))
-
-## third analysis
-exxon7 <- my_data %>% slice(4928:4927)
-exxon8 <- my_data %>% slice(4928:4923)
-exxon9 <- my_data %>% slice(4928:4918)
-
-## one day analysis
-ggplot(data = exxon7) + geom_point(mapping = aes(equity, Date))
-
-## five days analysis 
-ggplot(data = exxon8) + geom_point(mapping = aes(equity, Date))
-
-## ten days analysis
-ggplot(data = exxon9) + geom_point(mapping = aes(equity, Date))
-
-## fourth analysis
-exxon10 <- my_data %>% slice(4930:4929)
-exxon11 <- my_data %>% slice(4930:4925)
-exxon12 <- my_data %>% slice(4930:4920)
-
-## one day analysis
-ggplot(data = exxon10) + geom_point(mapping = aes(equity, Date))
-
-## five days analysis 
-ggplot(data = exxon11) + geom_point(mapping = aes(equity, Date))
-
-## ten days analysis
-ggplot(data = exxon12) + geom_point(mapping = aes(equity, Date))
-
-## fifth analysis
-exxon13 <- my_data %>% slice(4931:4930)
-exxon14 <- my_data %>% slice(4931:4926)
-exxon15 <- my_data %>% slice(4931:4921)
-
-## one day analysis
-ggplot(data = exxon13) + geom_point(mapping = aes(equity, Date))
-
-## five days analysis 
-ggplot(data = exxon14) + geom_point(mapping = aes(equity, Date))
-
-## ten days analysis
-ggplot(data = exxon15) + geom_point(mapping = aes(equity, Date))
-
-## sixth analysis
-exxon16 <- my_data %>% slice(4931:4930)
-exxon17 <- my_data %>% slice(4931:4926)
-exxon18 <- my_data %>% slice(4931:4921)
-
-## one day analysis
-ggplot(data = exxon16) + geom_point(mapping = aes(equity, Date))
-
-## five days analysis 
-ggplot(data = exxon17) + geom_point(mapping = aes(equity, Date))
-
-## ten days analysis
-ggplot(data = exxon18) + geom_point(mapping = aes(equity, Date))
-
-## seventh analysis
-exxon19 <- my_data %>% slice(4932:4931)
-exxon20 <- my_data %>% slice(4932:4927)
-exxon21 <- my_data %>% slice(4932:4922)
-
-## one day analysis
-ggplot(data = exxon19) + geom_point(mapping = aes(equity, Date))
-
-## five days analysis 
-ggplot(data = exxon20) + geom_point(mapping = aes(equity, Date))
-
-## ten days analysis
-ggplot(data = exxon21) + geom_point(mapping = aes(equity, Date))
-
-## seventh analysis
-exxon22 <- my_data %>% slice(4934:4933)
-exxon23 <- my_data %>% slice(4934:4929)
-exxon24 <- my_data %>% slice(4934:4924)
-
-## one day analysis
-ggplot(data = exxon22) + geom_point(mapping = aes(equity, Date))
-
-## five days analysis 
-ggplot(data = exxon23) + geom_point(mapping = aes(equity, Date))
-
-## ten days analysis
-ggplot(data = exxon24) + geom_point(mapping = aes(equity, Date))
-
-## eighth analysis
-exxon25 <- my_data %>% slice(5271:5270)
-exxon26 <- my_data %>% slice(5271:5266)
-exxon27 <- my_data %>% slice(5271:5261)
-
-## one day analysis
-ggplot(data = exxon25) + geom_point(mapping = aes(equity, Date))
-
-## five days analysis 
-ggplot(data = exxon26) + geom_point(mapping = aes(equity, Date))
-
-## ten days analysis
-ggplot(data = exxon27) + geom_point(mapping = aes(equity, Date))
-
-## nineth analysis
-exxon28 <- my_data %>% slice(5419:5418)
-exxon29 <- my_data %>% slice(5419:5414)
-exxon30 <- my_data %>% slice(5419:5409)
-
-## one day analysis
-ggplot(data = exxon28) + geom_point(mapping = aes(equity, Date))
-
-## five days analysis 
-ggplot(data = exxon29) + geom_point(mapping = aes(equity, Date))
-
-## ten days analysis
-ggplot(data = exxon30) + geom_point(mapping = aes(equity, Date))
-
-## Testing correlations 
-## Creating a new column in the dataframe 
-
-my_data$greenwashing <- my_data$press
-my_data$greenwashing[is.na(my_data$greenwashing)] = 0 
-  
-cor.test(my_data$greenwashing, my_data$equity, method = "pearson")
+## plotting the graph
+ggplot(data = shell24, aes(x = Date, y = equity)) +
+  geom_point(size = 3, aes(colour = highlight)) +
+  scale_color_manual("Status", values = my_colors)
